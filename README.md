@@ -90,7 +90,7 @@ src/
 - **Streamlit** – Frontend framework
 - **FastAPI** – API server
 - **SQLite** – Lightweight database
-- **Python Agents** – For knowledge enrichment & meal generation
+- **AI Agents** – For knowledge enrichment & meal generation
 - **Web scraping** – For trending recipe detection
 
 ---
