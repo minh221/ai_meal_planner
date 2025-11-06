@@ -1,6 +1,6 @@
 # 🥗 AI-Powered Meal Planner App
 
-A personalized meal planning app built with Crew AIm, Streamlit and FastAPI , designed to generate customized meal plans based on user health profiles and trending recipes. The system leverages AI agents and a dynamic knowledge base to continuously improve its suggestions.
+A personalized meal planning app built with Crew AI, Streamlit and FastAPI , designed to generate customized meal plans based on user health profiles and trending recipes. The system leverages AI agents and a dynamic knowledge base to continuously improve its suggestions.
 ---
 Check out the app via: [link](https://huggingface.co/spaces/minh221/agenticAI)
 
