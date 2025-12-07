@@ -1,0 +1,112 @@
+allergy_inspector_task:
+  description: >
+    Check all foods in the meal plan against the user's allergies and determine if any allergens are present
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is user's allergies:
+    - {allergies}
+    This is the meal plan:
+    - {meal_plan}
+  expected_output: Return 1 if any allergy is detected, 0 if none is found and a detailed report of any allergens found in the meal plan
+  # output_file: >
+  #   {user_id}_allergies_detected.json
+  agent: allergy_inspector
+
+
+health_condition_analyst_task:
+  description: >
+    Evaluate how well the meal plan addresses the user's health conditions
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is user's health conditions:
+    - {health_conditions}
+    This is the meal plan:
+    - {meal_plan}
+  expected_output: An analysis of health condition compatibility with score (1-10) and detailed justification
+  # output_file: >
+  #   {user_id}_health_condition_compatibility.json
+  agent: health_condition_analyst
+
+
+dietary_preference_evaluator_task:
+  description: >
+    Assess adherence of the meal plan to the user's dietary preferences
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is user's dietary preferences:
+    - {dietary_preferences}
+    This is the meal plan:
+    - {meal_plan}
+
+  expected_output: An analysis of dietary preference adherence with score (1-10) and detailed justification
+  # output_file: >
+  #   {user_id}_diet_preference_adherence.json
+  agent: dietary_preference_evaluator
+
+
+
+food_preference_analyst_task:
+  description: >
+    Analyze how well the meal plan incorporates the user's food preferences
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is user's food preferences:
+    - {food_preferences}
+    This is the meal plan:
+    - {meal_plan}
+  expected_output: An analysis of food preferences relevance with score (1-10) and detailed justification
+  # output_file: >
+  #   {user_id}_food_preferences_relevant.json
+  agent: food_preference_analyst
+
+
+nutrition_evaluator_task:
+  description: >
+    Evaluate the overall nutritional balance of the meal plan
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is the meal plan:
+    - {meal_plan}
+    This is user's nutritional goals:
+    - {nutritional_goals}
+  expected_output: A nutritional balance analysis with score (1-10) and detailed justification
+  # output_file: >
+  #   {user_id}_nutritional_balance.json
+  agent: nutrition_evaluator
+
+
+variety_analyst_task:
+  description: >
+    Assess the variety of meals and ingredients in the meal plan
+    This is user's basic information:
+    - {age} years old
+    - {gender}
+    - {weight_kg} kg
+    - {height_cm} cm
+    This is the meal plan:
+    - {meal_plan}
+  expected_output: A variety analysis with score (1-10) and detailed justification
+  # output_file: >
+  #   {user_id}_variety.json
+  agent: variety_analyst
+
+# evaluation_synthesizer_task:
+#   description: >
+#     Compile all evaluations from all previous tasks the into a final assessment that follows the EvaluationOutput format
+#   expected_output: A comprehensive evaluation report in the EvaluationOutput format with all scores and justifications
+#   agent: evaluation_synthesizer

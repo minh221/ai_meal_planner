@@ -1,0 +1,222 @@
+/* Hide Streamlit default elements */
+#MainMenu {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+.stHeaderActionElements {
+    visibility: hidden;
+}
+
+/* Main app background - clean white/light background */
+.stApp {
+    background: #f5f7fa;
+}
+
+/* Header styling */
+h1 {
+    color: #2c3e50 !important;
+    font-weight: 800 !important;
+    margin-bottom: 0 !important;
+    text-align: center !important;
+}
+
+/* Subheader styling */
+h2, h3, h4 {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+/* Card-like containers */
+.stForm {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    margin: 1rem 0;
+}
+
+/* Expander styling */
+.streamlit-expanderHeader {
+    background: rgba(102, 126, 234, 0.1) !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+/* .stExpander:hover {
+    background: rgba(102, 126, 234, 0.2) !important;
+} */
+
+/* Input fields styling */
+.stTextInput > div > div > input,
+.stNumberInput > div > div > input,
+.stTextArea > div > div > textarea {
+    border-radius: 10px !important;
+    /* border: 2px solid rgba(102, 126, 234, 0.3) !important; */
+    transition: all 0.3s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stNumberInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    /* border-color: #667eea !important; */
+    box-shadow: 0 0 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* Selectbox styling */
+.stSelectbox > div > div {
+    border-radius: 10px !important;
+}
+
+/* Multiselect styling */
+.stMultiSelect > div > div {
+    border-radius: 10px !important;
+}
+
+.stMultiSelect > div > div > div > div[role="option"]:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+}
+/* Button styling */
+.stButton > button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    width: 100%;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+    color: white !important;
+}
+
+/* Form submit button - secondary style */
+.stButton > button[kind="secondary"] {
+    background: white !important;
+    color: #667eea !important;
+    border: 2px solid #667eea !important;
+}
+
+.stButton > button[kind="secondary"]:hover {
+    background: rgba(102, 126, 234, 0.1) !important;
+    color: #667eea !important;
+}
+
+/* Info, success, error messages */
+.stInfo, .stSuccess, .stError, .stWarning {
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Meal plan display card */
+.meal-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    margin: 1rem 0;
+}
+
+/* Day header in meal plan */
+.day-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem;
+    border-radius: 12px;
+    margin: 1rem 0;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* Meal name styling */
+.meal-name {
+    color: #667eea;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+/* Food item container */
+.food-item {
+    background: rgba(102, 126, 234, 0.05);
+    padding: 1rem;
+    border-radius: 10px;
+    margin: 0.5rem 0;
+    border-left: 4px solid #667eea;
+}
+
+/* Labels */
+label {
+    font-weight: 500 !important;
+    color: #2c3e50 !important;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 2px solid rgba(102, 126, 234, 0.2);
+    margin: 2rem 0;
+}
+
+/* Custom message styling */
+.message-text {
+    font-size: 14px;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.message-success {
+    color: #4ade80;
+}
+
+.message-error {
+    color: #ef4444;
+}
+
+.message-warning {
+    color: #fbbf24;
+}
+
+/* Spinner */
+.stSpinner > div {
+    border-top-color: #667eea !important;
+}
+
+/* Container padding */
+.block-container {
+    padding-top: 2rem !important;
+}
+
+/* Not logged in card */
+.not-logged-in-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 600px;
+}
+
+span.st-ae.st-af.st-ag.st-ah.st-ai.st-aj.st-cm.st-hc.st-hd.st-bj.st-bk.st-bl.st-bm.st-c0.st-c1.st-c2.st-c3.st-gm.st-gn.st-go.st-gp.st-bd.st-gq.st-gr.st-gs.st-b4.st-gt.st-gu.st-b6.st-gv.st-gw.st-gx.st-gh.st-cp.st-c8.st-he.st-gy{
+        background: rgba(0, 0, 0, 0.0);  /* Change background color */
+        color: #2e2e2e !important;              /* Change text color */
+    }

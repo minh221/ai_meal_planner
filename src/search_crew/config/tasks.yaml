@@ -1,8 +1,27 @@
 nutrition_research_task:
   description: >
-    Research nutrition recommendations and restrictions for {health_condition} from reliable sources.
+    Research nutrition recommendations and restrictions for {health_condition} using only high-trust government sources (e.g., site:nih.gov, site:cdc.gov).
     Identify foods that are beneficial for managing this condition and those that should be limited or avoided.
     Consider interactions with common medications and both short-term and long-term nutritional approaches.
+    You should:
+    1. First, clearly identify the specific health condition provided by the user and confirm your understanding
+    2. Use only reliable, government-backed sources: 
+       - site:nih.gov
+       - site:cdc.gov
+       - site:usda.gov
+       - site:.gov (general fallback)
+    3. Form search queries like: 
+       "nutritional recommendations for {health_condition} site:nih.gov OR site:cdc.gov OR site:.gov"
+    4. Use GovRestrictedSearchTool for searching and ScrapeWebsiteTool for reading content.
+    5. Only extract information directly from the text of those sites — do not infer or hallucinate.
+    6. Structure the output:
+       - Recommended foods with explanation of benefits
+       - Foods to restrict or avoid with explanation of risks
+       - Sample meal pattern appropriate for the condition
+       - Nutrients of special concern (deficiencies or excess)
+    7. Include both general principles and specific food examples
+    8. Note if recommendations might conflict with other common conditions
+
   expected_output: >
     A comprehensive nutrition guide for {health_condition} that includes:
     1. A brief overview of how nutrition affects this health condition

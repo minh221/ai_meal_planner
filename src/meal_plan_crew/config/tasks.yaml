@@ -5,11 +5,25 @@ meal_planning_task:
     management of any health conditions while respecting food preferences and restrictions.
 
     This is the user's profile:
+    - Age: {age}
+    - Gender: {gender}
+    - Height: {height_cm} cm
+    - Weight: {weight_kg} kg
     - Health Conditions: {health_conditions}
     - Dietary Preferences: {dietary_preferences}
     - Allergies: {allergies}
     - Nutritional Goals: {nutritional_goals}
     - Food Preferences: {food_preferences}
+
+    1. First calculate the user's Basal Metabolic Rate (BMR) to determine caloric needs.
+    The formula for BMR is:
+      - Male: BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(years) + 5
+      - Female: BMR = 10 * weight(kg) + 6.25 * height(cm) - 5 * age(years) - 161
+    2. Review knowledge base related to user's health conditions to later incorporate it into the meal plan.
+    3. Create a meal plan that meets these caloric needs while considering the user's dietary restrictions and preferences.
+    Strictly avoid any foods that the user is allergic to or dislikes. If their is potential allergic ingredients, instruct the user to choose the allergic-free alternative.
+    You also have access to a database of nutritional information for various foods.
+    
   expected_output: >
     A detailed meal plan for {number_of_days} days that includes:
     1. Daily meal breakdown (breakfast, lunch, dinner, snacks)

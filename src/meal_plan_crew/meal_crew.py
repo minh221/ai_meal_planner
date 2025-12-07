@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task, LLM
 from crewai.project import CrewBase, agent, crew, task
+from crewai_tools import CSVSearchTool
 from crewai.knowledge.source.crew_docling_source import CrewDoclingSource
 import os
 
@@ -7,34 +8,23 @@ from pydantic import BaseModel, Field
 from typing import List, Dict, Optional
 from crewai import Task
 from crewai.tasks import TaskOutput
+from src.types.type_model import *
 
-# Define the Pydantic model for the meal planning output
-class FoodItem(BaseModel):
-	name: str = Field(..., description="Name of the food item")
-	portion_size: str = Field(..., description="Portion size of the food item")
-	preparation: Optional[str] = Field(None, description="Basic preparation instructions")
+tool = CSVSearchTool(
+	csv_path="knowledge/food_data.csv",
+	search_column="food",
+	output_columns=['food','calories','protein','fat','carbohydrates'],
+	tool_name="FoodNutrientSearchTool",
+	description="A tool to search for nutrient information per 100g of food."
+)
 
-class Meal(BaseModel):
-    name: str = Field(..., description="Name of the meal (e.g., 'Breakfast', 'Lunch', 'Dinner', 'Snack')")
-    foods: List[FoodItem] = Field(..., description="List of foods included in this meal")
-
-class DailyMealPlan(BaseModel):
-    day: int = Field(..., description="Day number in the meal plan")
-    meals: List[Meal] = Field(..., description="List of meals for this day")
-    daily_advice: Optional[str] = Field(None, description="Specific advice for this day")
-
-class MealPlanOutput(BaseModel):
-    meal_plan: List[DailyMealPlan] = Field(..., description="Daily meal plans for the requested duration")
-    health_condition_considerations: Dict[str, str] = Field(
-        ..., 
-        description="How the meal plan addresses each health condition"
-    )
-    dietary_accommodations: Dict[str, str] = Field(
-        ..., 
-        description="How dietary preferences and allergies were accommodated"
-    )
-    general_advice: str = Field(..., description="General advice for following the meal plan")
-
+google_embedder={
+		"provider": "google",
+		"config": {
+			"model": "models/text-embedding-004",
+			"api_key": os.getenv("GEMINI_API_KEY"),
+		}
+	}
 
 @CrewBase
 class MealPlanCrew():
@@ -42,11 +32,19 @@ class MealPlanCrew():
 	def __init__(self, knowledge_paths: Optional[List[str]] = None):
 		self.knowledge_paths = knowledge_paths # e.g., ['/path/to/knowledge.md']
 
-	gemini_model = LLM(
-			model="gemini/gemini-2.0-flash",
-			temperature=0.7,
-			api_key=os.getenv("GEMINI_API_KEY")
-		)
+	# llm_model = LLM(
+	# 		model="gemini/gemini-2.0-flash",
+	# 		temperature=0.7,
+	# 		api_key=os.getenv("GEMINI_API_KEY")
+	# 	)
+	
+	llm_model = LLM(
+		model="openrouter/microsoft/phi-4-reasoning-plus:free",
+		base_url="https://openrouter.ai/api/v1",
+		api_key=os.getenv("OPENROUTER_API_KEY"),
+		temperature=0.7,
+	)
+	
 	agents_config = "config/agents.yaml"
 
 	tasks_config = "config/tasks.yaml"
@@ -55,8 +53,10 @@ class MealPlanCrew():
 	def meal_planner(self) -> Agent:
 		return Agent(
 			config=self.agents_config['meal_planner'],
-			llm=self.gemini_model,
-			verbose=True
+			llm=self.llm_model,
+			tools=[tool],
+			verbose=True,
+			embedder= google_embedder
 		)
 
 	@task
@@ -83,4 +83,5 @@ class MealPlanCrew():
 			process=Process.sequential,
 			knowledge_sources=[CrewDoclingSource(file_paths=self.knowledge_paths)],
 			verbose=True,
+			embedder= google_embedder
 		)

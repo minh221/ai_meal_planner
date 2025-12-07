@@ -1,5 +1,8 @@
 .env
 venv
 ref
+yeval_file
 src/main.py
+src/chroma_db_nutrition.py
+src/update_recipes.py
 test.py

@@ -1,0 +1,197 @@
+/* Hide Streamlit default elements */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+header {visibility: hidden;}
+
+
+/* Login container with glass morphism effect */
+.stColumn.st-emotion-cache-t74pzu.eu6p4el2 {
+    background: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    padding: 1.5rem 2rem !important;
+    border-radius: 24px !important;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.4) !important;
+    max-width: 450px !important;
+    animation: fadeInUp 0.6s ease-out !important;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 48px;
+    color: #ffffff;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: -1px;
+}
+
+.emoji-row {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.description {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+/* Input field styling with glassmorphism */
+.stTextInput > div > div > input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+    padding: 14px 18px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    color: rgba(0, 0, 0, 0.6) !important;
+    /* box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important; */
+}
+
+.stTextInput > div > div > input::placeholder {
+    color: rgba(0, 0, 0, 0.2) !important;
+    opacity: 0.8 !important;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(102, 126, 234, 0.4) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Label styling for glassmorphism theme */
+.stTextInput > label {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+}
+
+/* Remove background from help text */
+.stTextInput > div > div > div[data-testid="stMarkdownContainer"] {
+    background: transparent !important;
+}
+
+.stTextInput > div > div > div[data-testid="stMarkdownContainer"] p {
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: transparent !important;
+    font-size: 14px !important;
+}
+
+[data-testid="InputInstructions"] {
+    color: rgba(0, 0, 0, 0) !important;
+}
+
+.stTextInput small {
+    background: transparent !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Button styling with gradient */
+.stButton > button {
+    width: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white !important;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.stButton > button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    color: white !important;
+}
+
+.stButton > button:active {
+    transform: translateY(-1px);
+}
+
+/* Hide default Streamlit alerts */
+.stAlert {
+    display: none !important;
+}
+
+/* Custom message styling */
+.message-text {
+    font-size: 14px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.message-success {
+    color: #4ade80;
+}
+
+.message-error {
+    color: #ef4444;
+}
+
+/* Spinner styling */
+.stSpinner > div {
+    border-top-color: #667eea !important;
+}
+
+/* Footer text */
+.footer-text {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    margin-top: 2rem;
+}
+
+/* Welcome container styling */
+.welcome-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.welcome-title {
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center ;
+}
+
+.welcome-subtitle {
+    font-size: 18px;
+    color: #e9eaeb;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
