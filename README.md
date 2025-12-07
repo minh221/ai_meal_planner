@@ -9,12 +9,16 @@ Check out the app via: [link](https://huggingface.co/spaces/minh221/agenticAI)
 ## 🚀 Features
 
 ### 🔐 Login & Profile Management
+<img width="1471" height="844" alt="image" src="https://github.com/user-attachments/assets/e251c174-662f-40b3-9454-21c2ef425cce" />
+
 - Users enter their **User ID** to log in.
 - The app checks for existing profiles in the database.
   - If found: displays and allows editing.
   - If not found: prompts users to create and save a profile.
 
 ### 🧠 AI Meal Planner
+<img width="1474" height="877" alt="image" src="https://github.com/user-attachments/assets/cddc324b-7379-4eea-b5c6-399909e4c62a" />
+
 - Users can generate a meal plan tailored to their **health conditions**.
 - AI agents handle:
   - **Condition Analysis**: Check if condition-related nutrition info exists in the knowledge base.
